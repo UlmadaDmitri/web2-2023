@@ -1,2 +1,2 @@
 1. javascript
-2. un internet magazin
+2. informational portal
