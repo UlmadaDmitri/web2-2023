@@ -7,7 +7,7 @@ class PokemonController {
     }
 
     async delete(request, response) {
-        response.send(PokemonService.delete(Number(request.params.id)))
+        response.send(PokemonService.delete(request.params.id))
     }
 
     async update(request, response) {

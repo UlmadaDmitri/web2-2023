@@ -1,6 +1,6 @@
-import { Schema, model, models } from "mongoose";
-
-const UserModel = new Schema({
+//import { Schema, model, models } from "mongoose";
+const mongoose = require ("mongoose")
+const PokemonModel = new mongoose.Schema({
     name: {
         type: String,
         unique: [true, "Email already exists."],
@@ -20,6 +20,6 @@ const UserModel = new Schema({
     }
 });
 
-const User = models.User || model("User", UserModel);
+const Pokemon = mongoose.models.Pokemon || mongoose.model("Pokemon", PokemonModel);
 
-export default User;
+module.exports = Pokemon;

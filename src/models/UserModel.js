@@ -1,6 +1,6 @@
-import { Schema, model, models } from "mongoose";
-
-const UserModel = new Schema({
+//import { Schema, model, models } from "mongoose";
+const mongoose = require ("mongoose")
+const UserModel = new mongoose.Schema({
     email: {
         type: String,
         unique: [true, "Email already exists."],
@@ -12,7 +12,7 @@ const UserModel = new Schema({
         required: [true, "Username is required."],
     },
     role_id: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: [true, "Role is required"],
         ref: "Role",
         //default: "6505c48adba63bdf1b69486f"
@@ -23,6 +23,6 @@ const UserModel = new Schema({
     }
 });
 
-const User = models.User || model("User", UserModel);
+const User = mongoose.models.User || mongoose.model("User", UserModel);
 
-export default User;
+module.exports = User;

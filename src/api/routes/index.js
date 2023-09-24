@@ -1,7 +1,7 @@
 const Router = require('express')
 const router = new Router()
 
-const modules = ['User', 'specialities']
+const modules = ['user', 'pokemon']
 
 modules.forEach(module => {
     router.use(`/${module}`, require(`./${module}`))
