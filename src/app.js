@@ -16,3 +16,5 @@ const start = () => {
     }
 }
 start();
+
+require("./database.js");
