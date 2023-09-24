@@ -11,12 +11,12 @@ const UserModel = new mongoose.Schema({
         unique: [true, "Username already exists."],
         required: [true, "Username is required."],
     },
-    role_id: {
+    /*role_id: {
         type: mongoose.Schema.Types.ObjectId,
         required: [true, "Role is required"],
         ref: "Role",
-        //default: "6505c48adba63bdf1b69486f"
-    },
+        default: "6505c48adba63bdf1b69486f"
+    },*/
     password: {
         type: String,
         required: [true, "Password is required."],

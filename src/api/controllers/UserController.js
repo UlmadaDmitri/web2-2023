@@ -7,7 +7,7 @@ class UserController {
     }
 
     async delete(request, response) {
-        response.send(UserService.delete(Number(request.params.id)))
+        response.send(UserService.delete(request.params.id))
     }
     
 }

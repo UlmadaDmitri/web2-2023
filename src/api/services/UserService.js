@@ -3,7 +3,7 @@ const UserModel =  require('../../models/UserModel.js')
 class UserService {
 
     async create(item){
-        await UserModel.save(item);
+        await UserModel.create(item);
     }
 
     async delete(id){
