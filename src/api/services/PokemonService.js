@@ -14,4 +14,5 @@ class PokemonService {
         await PokemonModel.update(item. id)
     }
 }
+
 module.exports = new PokemonService()
