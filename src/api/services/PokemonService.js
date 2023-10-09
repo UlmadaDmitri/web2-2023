@@ -11,7 +11,7 @@ class PokemonService {
     }
 
     async update(item, id){
-        await PokemonModel.update(item. id)
+        await PokemonModel.updateOne({_id:id}, item)
     }
 }
 

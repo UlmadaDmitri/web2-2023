@@ -11,7 +11,7 @@ class ArticleService {
     }
 
     async update(item, id){
-        await ArticleModel.update(item. id)
+        await ArticleModel.updateOne({_id:id}, item)
     }
 }
 

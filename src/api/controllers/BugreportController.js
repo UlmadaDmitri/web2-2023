@@ -10,9 +10,6 @@ class BugreportController {
         response.send(BugreportService.delete(request.params.id))
     }
 
-    async update(request, response) {
-        response.send(await BugreportService.update(request.body, Number(request.params.id)))
-    }
 }
 
 module.exports = new BugreportController()
