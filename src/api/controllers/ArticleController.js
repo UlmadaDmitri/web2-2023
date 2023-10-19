@@ -11,7 +11,7 @@ class ArticleController {
     }
 
     async update(request, response) {
-        response.send(await ArticleService.update(request.body, Number(request.params.id)))
+        response.send(await ArticleService.update(request.body, (request.params.id)))
     }
 }
 
