@@ -11,8 +11,7 @@ const ArticleModel = new mongoose.Schema({
     },
     author: {
         type: String,
-        required: [true, "Author is required."],
-        ref: "User"
+        required: [true, "Author is required."]
     }
 });
 
