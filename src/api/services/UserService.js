@@ -2,12 +2,16 @@ const UserModel =  require('../../models/UserModel.js')
 
 class UserService {
 
-    async create(item){
+    async create(item) {
         await UserModel.create(item);
     }
 
-    async delete(id){
+    async delete(id) {
         await UserModel.findByIdAndDelete(id);
+    }
+
+    async findOne(email) {
+        await UserModel.findOne({ email });
     }
 
 }
