@@ -11,7 +11,9 @@ class UserService {
     }
 
     async findOne(email) {
-        await UserModel.findOne({ email });
+        const [ user ] = await UserModel.find({ email: email });
+        return user;
+
     }
 
 }

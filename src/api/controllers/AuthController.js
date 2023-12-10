@@ -20,18 +20,15 @@ class AuthController {
     async login(request, response) {
         const { email, password } = request.body;
         try {
-            const user = await UserService.findOne({ email: email });
-            console.log(1)
+            const user = await UserService.findOne(email);
             if (!user) {
                 return response.status(401).send('Authentication failed');
             }
-            console.log(2)
 
             const passwordMatch = await bcrypt.compare(password, user.password);
             if (!passwordMatch) {
                 return response.status(401).send('Authentication failed');
             }
-            console.log(3)
 
             const token = jwt.sign({ username: user.username, email: user.email }, 'your_secret_key', { expiresIn: '1h' });
             response.json({ token });
