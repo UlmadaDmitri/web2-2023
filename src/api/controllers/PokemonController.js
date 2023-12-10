@@ -11,7 +11,7 @@ class PokemonController {
     }
 
     async update(request, response) {
-        response.send(await PokemonService.update(request.body, Number(request.params.id)))
+        response.send(await PokemonService.update(request.body, (request.params.id)))
     }
 }
 
