@@ -1,18 +1,20 @@
-const BugreportModel =  require('../../models/BugreportModel.js')
-
-class BugreportService {
-
-    async create(item){
-        await BugreportModel.create(item);
+const mongoose = require ("mongoose")
+const BugreportModel = new mongoose.Schema({
+    title: {
+        type: String,
+        unique: [true, "Bugreport already exists."],
+        required: [true, "Bugreport is required."],
+    },
+    message: {
+        type: String,
+        required: [true, "Message is required."],
+    },
+    author: {
+        type: String,
+        required: [true, "Author is required."]
     }
+});
 
-    async delete(id){
-        await BugreportModel.findByIdAndDelete(id);
-    }
+const Bugreport = mongoose.models.Bugreport || mongoose.model("Bugreport", BugreportModel);
 
-    async update(item, id){
-        await BugreportModel.update(item. id)
-    }
-}
-
-module.exports = new BugreportService()
+module.exports = Bugreport;

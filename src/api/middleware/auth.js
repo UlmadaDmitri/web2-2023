@@ -1,26 +1,30 @@
 const jwt = require('jsonwebtoken');
 
 const AuthMiddleware = () => (req, res, next) => {
-    const AuthHeader = req.headers.authorization;
-    console.log(AuthHeader)
-    if (AuthHeader) {
-        const token = AuthHeader.split(' ')[1];
-        console.log(token)
-        if (!token) {
-            return res.status(403).send('Unauthorized');
-        }
-        jwt.verify(token, 'your_secret_key', (err, decoded) => {
-            if (err) {
-                return res.status(403).send('Unauthorized');
-            }
-            req.user = decoded;
-            next();
-        });
-    } else {
-        // Если заголовок авторизации отсутствует, необходимо решить, что делать.
-        // В данном случае, вы можете просто перейти к выполнению следующего middleware.
+    if (req.method === "OPTIONS") {
         next();
+    }
+
+    try {
+        const authorization = req.headers.authorization;
+
+        if (authorization) {
+            const token = authorization.split(' ')[1];
+
+            if (!token) {
+                return res.status(403).json({message: "User is not authenticated"});
+            }
+
+            const { email } = jwt.verify(token, 'your_secret_key');
+            if (!email) {
+                return res.status(403).json({message: "Email is not valid"});
+            }
         }
+
+        next();
+    } catch (e) {
+        return res.status(403).json({message: "User is not authenticated"});
+    }
 }
 
 module.exports = AuthMiddleware;
