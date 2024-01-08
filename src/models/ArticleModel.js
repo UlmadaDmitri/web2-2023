@@ -7,7 +7,7 @@ const ArticleModel = new mongoose.Schema({
     },
     content: {
         type: String,
-        required: [true, "Username is required."],
+        required: [true, "Message is required."],
     },
     author: {
         type: String,

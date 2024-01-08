@@ -3,12 +3,12 @@ const mongoose = require ("mongoose")
 const PokemonModel = new mongoose.Schema({
     name: {
         type: String,
-        unique: [true, "Email already exists."],
-        required: [true, "Email is required."],
+        unique: [true, "Name already exists."],
+        required: [true, "Name is required."],
     },
     type: {
         type: String,
-        required: [true, "Username is required."],
+        required: [true, "Type is required."],
     },
     nature: {
         type: String,

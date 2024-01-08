@@ -5,7 +5,7 @@ const BugreportModel = new mongoose.Schema({
         unique: [true, "Bugreport already exists."],
         required: [true, "Bugreport is required."],
     },
-    message: {
+    content: {
         type: String,
         required: [true, "Message is required."],
     },
